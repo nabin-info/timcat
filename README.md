@@ -13,7 +13,8 @@ The following example uses the default login (admin/admin) to issue commands
 from the command line, and from stdin. I simply filled stdin (using echo) with
 a TiMOS CLI command to mimic the familiar _uptime_ command.
 
-[code]
+
+timcat is simple to use
 
       $ timcat -H sr7host -- "show version"
 
@@ -24,18 +25,18 @@ a TiMOS CLI command to mimic the familiar _uptime_ command.
       All rights reserved. All use subject to applicable license agreements.
       Built on Tue Nov 19 15:12:45 PST 2013 by builder in /rel11.0/b1/R6/panos/main
 
-[/code]
     
-[code]
+timcat can read commands from argv
+
       $ timcat -H sr7host -- "show card state"
 
       INFO: connecting to sr7host (***.***.***.***) on port 22
       *A:sr7host# show system information | match "System Up Time"
       System Up Time         : 9 days, 14:28:15.45 (hr:min:sec)
 
-[/code]
 
-[code]
+timcat can read commands from stdin
+
       $ echo 'show system information | match "System Up Time"' | timcat -H sr7host 
     
       INFO: connecting to sr7host (***.***.***.***) on port 22
@@ -77,8 +78,6 @@ a TiMOS CLI command to mimic the familiar _uptime_ command.
       *A:sr7host# show system information | match "System Up Time"
       System Up Time         : 9 days, 14:28:15.45 (hr:min:sec)
       *A:sr7host# 
-     
-[/code]
 
 ## Background
 
